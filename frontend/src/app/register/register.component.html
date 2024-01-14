@@ -1,0 +1,38 @@
+<div class="container w-50" style="margin: 0; max-width: 500px;">
+
+    <div class="form-all">
+        <h2 style="font-size: 25px; margin-bottom: 40px;">Creeaza cont nou</h2>
+
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+            <p>Nume de utilizator</p>
+            <mat-form-field appearance="outline" class="field">
+                <input matInput ngModel name="userName" id="userName" placeholder="Nume de utilizator">
+            </mat-form-field>
+
+            <p>Nume</p>
+            <mat-form-field appearance="outline" class="field">
+                <input matInput ngModel name="userLastName" id="userLastName" placeholder="Nume">
+            </mat-form-field>
+
+            <p>Prenume</p>
+            <mat-form-field appearance="outline" class="field">
+                <input matInput ngModel name="userFirstName" id="userFirstName" placeholder="Prenume">
+            </mat-form-field>
+
+
+            <p>Parola</p>
+            <mat-form-field appearance="outline" class="field">
+                <input matInput ngModel type="password" name="userPassword" id="userPassword" placeholder="Parola">
+            </mat-form-field>
+
+            <div class="register-button" style="margin-left: 150px;">
+                <button type="submit" mat-raised-button color="primary">Inregistreaza-te</button>
+            </div>
+
+        </form>
+
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    </div>
+
+</div>

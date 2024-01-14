@@ -1,0 +1,85 @@
+<div class="container mt-5">
+    <div *ngIf="isOrderDetailsInvalid" class="alert alert-danger">
+        Completați toate informațiile comenzii înainte de a plasa comanda.
+    </div>
+
+    <div class="card p-3">
+        <div class="row">
+            <div class="col-6">
+                <form #orderForm="ngForm" (ngSubmit)="placeOrder(orderForm)">
+                    <div class="input">
+
+                        <p>Nume si prenume</p>
+                        <mat-form-field appearance="outline" class="field">
+                            <input matInput placeholder="Nume si prenume" [(ngModel)]="orderDetails.fullName"
+                                name="fullName">
+                        </mat-form-field>
+
+                        <p>Adresa</p>
+                        <mat-form-field appearance="outline" class="field">
+                            <input matInput placeholder="Adresa" [(ngModel)]="orderDetails.fullAdress"
+                                name="fullAdress">
+                        </mat-form-field>
+
+                        <p>Numar de contact</p>
+                        <mat-form-field appearance="outline" class="field">
+                            <input matInput placeholder="Numar de contact" [(ngModel)]="orderDetails.contactNumber"
+                                name="contactNumber">
+                        </mat-form-field>
+
+                        <p>Numar de contact aditional</p>
+                        <mat-form-field appearance="outline" class="field">
+                            <input matInput placeholder="Numar de contact aditional"
+                                [(ngModel)]="orderDetails.alternateContactNumber" name="alternateContactNumber">
+                        </mat-form-field>
+                    </div>
+
+                    <div style="text-align: end;">
+                        <button type="submit" mat-stroked-button color="primary">Plaseaza comanda</button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-6">
+                <table class="table">
+                    <thead class="thead">
+                        <tr>
+                            <th>Nume produs</th>
+                            <th>Pret</th>
+                            <th>Cantitate</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody">
+                        <tr *ngFor="let product of productDetails">
+                            <td>{{product.productName}}</td>
+                            <td>{{product.productActualPrice}} lei</td>
+                            <td>
+                                <select 
+                                #quantity
+                                class="form-select"
+                                [ngModel]="getQuantityForProduct(product.productId)"
+                                (change)="onQuantityChanged(quantity.value, product.productId)"
+                                >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </td>
+                            <td>
+                                {{getCalculatedTotal(product.productId, product.productActualPrice)}} lei
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>Total</td>
+                            <td>{{getCalculatedGrandTotal()}} lei</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

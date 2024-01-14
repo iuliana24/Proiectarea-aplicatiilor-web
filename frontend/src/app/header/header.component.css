@@ -1,0 +1,43 @@
+.space-buttons {
+    flex: 1 1 auto;
+}
+
+.menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.login{
+    color: white;
+    font-size: medium;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.login:hover{
+    background-color: indigo; 
+}
+
+.menu-button button {
+    margin-right: 10px;
+    color: white;
+    font-size: 15px;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-button button:hover{
+    background-color: indigo; 
+}
+
+.logo {
+    
+    margin-left: 80px;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <span>
+
+    <a routerLink="/" class="logo">
+      Artshop
+    </a>
+
+  </span>
+
+  <span class="space-buttons"> </span>
+  <button *ngIf="!isLoggedIn()" routerLink="/login" mat-button class="login">
+    Autentificare
+  </button>
+  <button *ngIf="isLoggedIn()" (click)="logout()" mat-raised-button color="warn">
+    Log out
+  </button>
+
+</mat-toolbar>
+
+<mat-toolbar class="menu-button" *ngIf="isLoggedIn()" color="primary">
+  <div>
+    <button mat-button routerLink="/">Acasa</button>
+    <button *ngIf="!isAdmin()" mat-button routerLink="/cart">Cos cumparaturi</button>
+    <button *ngIf="!isAdmin()" mat-button routerLink="/myOrders">Comenzi</button>
+    <button *ngIf="isAdmin()" mat-button routerLink="/addNewProduct">Adauga produs</button>
+    <button *ngIf="isAdmin()" mat-button routerLink="/showProductDetails">Produse</button>
+    <button *ngIf="isAdmin()" mat-button routerLink="/orderInformation">Informatii comenzi</button>
+
+  </div>
+</mat-toolbar>

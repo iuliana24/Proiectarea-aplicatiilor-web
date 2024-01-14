@@ -1,0 +1,12 @@
+.input mat-form-field {
+    width: 100%;
+}
+
+p{
+    font-weight: 500;
+    font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 3px;
+    margin-top: 0;
+    padding: 0;
+}

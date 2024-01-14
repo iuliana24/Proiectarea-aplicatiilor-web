@@ -1,0 +1,16 @@
+
+table td, th{
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.card{
+    width: 100px;
+    height: 100px;
+}
+
+.table-image{
+    width: 80px;
+    height: auto;
+}

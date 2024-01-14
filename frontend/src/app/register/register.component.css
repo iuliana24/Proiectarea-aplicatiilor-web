@@ -1,0 +1,41 @@
+mat-form-field{
+    width: 500px;
+}
+
+
+.form-all{
+    display: block;
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 80px;
+    
+}
+
+h2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+.register-button button{
+    
+    margin-top: 10px;
+    width: 200px;
+    
+}
+
+p{
+    font-weight: 500;
+    font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 3px;
+    margin-top: 0;
+    padding: 0;
+}
+
+.error-message{
+    text-align: center;
+    margin-left: 90px;
+    margin-top: 20px;
+    font-size: 15px;
+    color: red;
+}

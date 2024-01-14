@@ -1,0 +1,14 @@
+mat-grid-list{
+    padding: 20px;
+}
+
+mat-grid-tile{
+    border: 1px solid #eee;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+img{
+    width: 150px;
+    height: auto;
+}

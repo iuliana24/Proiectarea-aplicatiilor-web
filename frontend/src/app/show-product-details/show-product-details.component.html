@@ -1,0 +1,66 @@
+<div class="mt-5 p-3">
+
+    <mat-form-field appearance="outline" class="w-100">
+        <input  
+        matInput  
+        #searchkeyword
+        (keyup)="searchByKeyword(searchkeyword.value)"
+        name="searchKey" 
+        id="searchKey" 
+        placeholder="Cauta produsul...">
+    </mat-form-field>
+
+    <div *ngIf="showTable">
+        <table mat-table [dataSource]="productDetails" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="Id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let element"> {{element.productId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Numele produsului">
+                <th mat-header-cell *matHeaderCellDef> Numele produsului </th>
+                <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Descriere">
+                <th mat-header-cell *matHeaderCellDef> Descriere </th>
+                <td mat-cell *matCellDef="let element"> {{element.productDescription}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Pret redus">
+                <th mat-header-cell *matHeaderCellDef> Pret redus </th>
+                <td mat-cell *matCellDef="let element"> {{element.productDiscountedPrice}} lei</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Pret">
+                <th mat-header-cell *matHeaderCellDef> Pret </th>
+                <td mat-cell *matCellDef="let element"> {{element.productActualPrice}} lei</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Actiuni">
+                <th mat-header-cell *matHeaderCellDef style="padding-left: 60px;"> Actiuni </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button color="primary" (click)="showImages(element)">
+                        <mat-icon>images</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="editProductDetails(element.productId)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="primary" (click)="deleteProduct(element.productId)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+    <div class="text-center p-5" *ngIf="showLoadMoreProductButton">
+        <button type="submit" mat-raised-button color="accent" (click)="loadMoreProducts()"> Mai multe rezultate
+        </button>
+    </div>
+
+</div>
